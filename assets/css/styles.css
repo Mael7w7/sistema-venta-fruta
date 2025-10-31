@@ -1,0 +1,551 @@
+/* Paleta: Azul #008BF8, Gris claro #E7ECEF */
+:root {
+  --primary: #00916E;
+  --primary-dark: #007559;
+  --primary-light: rgba(0, 145, 110, 0.1);
+  --secondary: #EC9F05;
+  --accent: #F7E733;
+  --light: #f8f9fa;
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --border: #e2e8f0;
+  --shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+  --transition: all 0.2s ease-in-out;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Clases de animación */
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.3s ease-out forwards;
+}
+
+/* Transiciones */
+.card-minimal,
+.btn,
+.nav-link,
+.list-group-item,
+.form-control {
+  transition: var(--transition);
+}
+
+.btn:active,
+.nav-link:active,
+.list-group-item:active {
+  transform: scale(0.97);
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: var(--text);
+  background-color: #f8fafc;
+  min-height: 100vh;
+}
+
+.navbar-sticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  z-index: 100;
+  background-color: white !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 1rem;
+}
+
+.navbar-sticky .navbar-brand {
+  font-size: 1.25rem;
+  color: var(--text);
+}
+
+.navbar-sticky .text-muted {
+  color: var(--text-muted) !important;
+}
+
+.navbar-sticky .btn-outline-danger {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.navbar-sticky .btn-outline-danger:hover {
+  background-color: var(--danger);
+  color: white;
+}
+
+.navbar-sticky .bi-person-circle {
+  color: var(--primary);
+}
+
+/* Ajustamos el contenido principal para que no se solape con el navbar */
+.container-fluid {
+  padding-top: 80px;
+  position: relative;
+  z-index: 200;
+}
+
+/* Mejoramos la apariencia del sidebar */
+.admin-sidebar-right {
+  position: fixed;
+  top: 64px;
+  right: 0;
+  bottom: 0;
+  width: 280px;
+  z-index: 150;
+  background: white;
+  padding: 1rem;
+}
+
+.admin-sidebar-right .card-minimal {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+  height: 100%;
+}
+
+.main-content {
+  margin-right: 280px;
+}
+
+.admin-sidebar-right .list-group-item {
+  border-radius: 8px !important;
+  margin-bottom: 4px;
+  border: none;
+  padding: 12px 16px;
+  transition: all 0.3s ease;
+  color: var(--text);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.admin-sidebar-right .list-group-item:hover {
+  background-color: var(--primary-light);
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.admin-sidebar-right .list-group-item.active {
+  background-color: var(--primary);
+  color: white !important;
+  text-decoration: none;
+}
+
+.admin-sidebar-right .list-group-item.active i {
+  color: white;
+}
+
+.admin-sidebar-right .list-group-item i {
+  color: var(--primary);
+  transition: color 0.3s ease;
+}
+
+.bg-light-soft {
+  background-color: var(--light) !important;
+}
+
+/* Estilos para las tarjetas de estadísticas */
+.card {
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+}
+
+.card.bg-primary {
+  background-color: var(--primary) !important;
+}
+
+.card.bg-secondary {
+  background-color: var(--secondary) !important;
+}
+
+.card.bg-warning {
+  background-color: var(--accent) !important;
+  color: var(--dark);
+}
+
+.card.bg-info {
+  background-color: var(--secondary) !important;
+}
+
+/* Estilo para el navbar */
+.navbar-sticky {
+  background: linear-gradient(135deg, var(--primary), var(--secondary)) !important;
+  color: white;
+  padding: 0.5rem 1rem;
+}
+
+.navbar-sticky .navbar-brand {
+  color: white;
+  font-size: 1.25rem;
+}
+
+.navbar-sticky .text-muted {
+  color: white !important;
+  opacity: 0.9;
+}
+
+.navbar-sticky .btn-outline-danger {
+  color: white;
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar-sticky .btn-outline-danger:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: white;
+}
+
+.navbar-sticky .bi-person-circle {
+  color: white !important;
+}
+
+/* Estilo para botones */
+.btn-primary {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+.btn-secondary {
+  background-color: var(--secondary);
+  border-color: var(--secondary);
+}
+
+/* Estilo para tablas */
+.table thead th {
+  background-color: var(--primary-light);
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+}
+
+.btn-primary {
+  background-color: var(--primary) !important;
+  border-color: var(--primary) !important;
+  transition: var(--transition);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark) !important;
+  border-color: var(--primary-dark) !important;
+  transform: translateY(-1px);
+}
+
+.section {
+  padding: 72px 0;
+}
+
+.hero {
+  background: linear-gradient(180deg, rgba(0, 139, 248, 0.08), rgba(231, 236, 239, 0.35));
+}
+
+.card-minimal {
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  border-radius: 12px;
+  transition: var(--transition);
+}
+
+.card-minimal:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.admin-sidebar-right {
+  position: fixed;
+  top: 64px;
+  bottom: 0;
+  right: 0;
+  width: 25%;
+  background: white;
+  padding: 1.5rem;
+  border-left: 1px solid var(--border);
+  overflow-y: auto;
+  z-index: 1020;
+}
+
+/* Ajustamos el contenido principal para que no se solape con el sidebar */
+@media (min-width: 992px) {
+  .main-content {
+    margin-right: 25%;
+  }
+}
+
+.admin-sidebar-right .list-group-item {
+  border: none;
+  border-radius: 8px !important;
+  margin-bottom: 4px;
+  color: var(--text-muted);
+  transition: var(--transition);
+  padding: 12px 16px;
+}
+
+.admin-sidebar-right .list-group-item:hover,
+.admin-sidebar-right .list-group-item.active {
+  background-color: var(--primary-light);
+  color: var(--primary);
+}
+
+.admin-sidebar-right .list-group-item i {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
+
+/* Tablas */
+table.table {
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 0;
+  --bs-table-striped-bg: var(--primary-light);
+  --bs-table-striped-color: var(--text);
+}
+
+table.table thead th {
+  background-color: var(--light);
+  border-bottom: none;
+  padding: 16px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+table.table td {
+  padding: 16px;
+  vertical-align: middle;
+  border-color: var(--border);
+}
+
+/* Headers y títulos */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.page-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  font-weight: 600;
+}
+
+.page-title i {
+  font-size: 1.5rem;
+  color: var(--primary);
+}
+
+/* Badges y estados */
+.badge-soft {
+  background-color: var(--primary-light);
+  color: var(--primary);
+  border: 1px solid rgba(0, 139, 248, 0.25);
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 6px;
+}
+
+/* Botones y acciones */
+.btn-rounded {
+  border-radius: 1.2rem;
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+  transition: var(--transition);
+}
+
+.btn-rounded:hover {
+  transform: translateY(-1px);
+}
+
+/* Cards especiales */
+.card-brand {
+  background: linear-gradient(135deg, var(--primary), #6f42c1);
+  color: #fff;
+  border: none;
+}
+
+.card-brand .btn-light {
+  backdrop-filter: blur(4px);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.card-brand .btn-outline-light {
+  backdrop-filter: blur(4px);
+}
+
+/* Utilidades */
+.form-inline-gap>* {
+  margin-right: 8px;
+}
+
+/* Dashboard cards */
+.dashboard-stat {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+}
+
+.dashboard-stat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background-color: var(--primary-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.dashboard-stat-info h3 {
+  font-size: 1.5rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.dashboard-stat-info p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+/* Responsive Design */
+@media (max-width: 991.98px) {
+  .admin-sidebar-right {
+    position: static;
+    padding-left: 0;
+    margin-top: -1rem;
+  }
+
+  .navbar .container-fluid {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .page-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .dashboard-stat {
+    padding: 16px;
+  }
+
+  .dashboard-stat-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+  }
+
+  .dashboard-stat-info h3 {
+    font-size: 1.25rem;
+  }
+
+  .table-responsive {
+    margin: 0 -1rem;
+    padding: 0 1rem;
+    width: calc(100% + 2rem);
+  }
+
+  .card-minimal {
+    margin-bottom: 1rem;
+  }
+
+  .btn-group {
+    display: flex;
+    width: 100%;
+  }
+
+  .btn-group .btn {
+    flex: 1;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .container-fluid {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .dashboard-stat {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .table td,
+  .table th {
+    padding: 12px 8px;
+    font-size: 0.875rem;
+  }
+
+  .badge {
+    font-size: 0.75rem;
+  }
+}
